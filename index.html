@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cask &amp; Barrel, Yarm – Demo design</title>
+<meta name="description" content="Demo website concept for Cask &amp; Barrel, 137 High Street, Yarm. Demo content - to be confirmed.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--green:#14301f;--green2:#1d4630;--cream:#f6efe0;--cream2:#ece2cb;--brass:#b98a3e;--brass2:#d9b366;--ink:#1c1a15;--serif:'Fraunces',Georgia,serif;--sans:'Inter',system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--sans);color:var(--ink);background:var(--cream);line-height:1.6;font-size:17px}
+a{color:inherit}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+.skip{position:absolute;left:-999px;top:0;background:var(--brass);color:#000;padding:10px 14px;z-index:99}
+.skip:focus{left:8px;top:8px}
+:focus-visible{outline:3px solid var(--brass2);outline-offset:3px}
+.tag{display:inline-block;font:600 11px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;background:#fff3cf;color:#6b4a00;border:1px dashed #b98a3e;border-radius:99px;padding:5px 9px;vertical-align:middle}
+.dark .tag{background:rgba(217,179,102,.15);color:var(--brass2);border-color:var(--brass2)}
+.banner{background:#000;color:#f3e2b3;font-size:13px;text-align:center;padding:8px 14px}
+header.nav{background:var(--green);color:var(--cream);position:sticky;top:0;z-index:10;border-bottom:2px solid var(--brass)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;min-height:60px;flex-wrap:wrap}
+.logo{font-family:var(--serif);font-weight:700;font-size:20px;text-decoration:none;color:var(--brass2);padding:8px 0}
+nav ul{display:flex;gap:4px 18px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{text-decoration:none;font-size:14px;font-weight:500;padding:8px 2px;display:inline-block}
+nav a:hover{color:var(--brass2)}
+@media(max-width:640px){nav li:nth-child(n+5){display:none}.logo{font-size:18px}}
+.hero{background:radial-gradient(ellipse at 20% 0,#2a5a3f 0,var(--green) 60%);color:var(--cream);padding:72px 0 84px;position:relative;overflow:hidden}
+.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:repeating-linear-gradient(90deg,var(--brass) 0 18px,transparent 18px 26px);opacity:.7}
+.eyebrow{color:var(--brass2);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:600;margin:0 0 14px}
+h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0}
+h1{font-size:clamp(40px,9vw,76px);font-weight:700;max-width:12ch}
+h1 em{color:var(--brass2);font-style:normal}
+.hero p.lead{font-size:clamp(18px,2.6vw,21px);max-width:34em;margin:20px 0 28px;color:#e6dcc3}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:14px 24px;border-radius:6px;border:2px solid var(--brass);background:var(--brass);color:#1a1405;cursor:pointer;font-size:16px;font-family:var(--sans)}
+.btn:hover{background:var(--brass2)}
+.btn.ghost{background:transparent;color:var(--cream)}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+section{padding:72px 0}
+section h2{font-size:clamp(30px,5vw,44px);margin-bottom:12px}
+.kicker{color:var(--brass);letter-spacing:.16em;text-transform:uppercase;font-size:12.5px;font-weight:600;margin:0 0 8px}
+.dark{background:var(--green);color:var(--cream)}
+.dark .kicker{color:var(--brass2)}
+.about{display:grid;gap:36px}
+@media(min-width:820px){.about{grid-template-columns:1.2fr 1fr;align-items:center}}
+.facts{list-style:none;padding:0;margin:0;display:grid;gap:12px}
+.facts li{background:#fff;border:1px solid var(--cream2);border-left:4px solid var(--brass);padding:14px 16px;border-radius:6px}
+.facts b{font-family:var(--serif);font-size:19px;display:block}
+.menu-grid{display:grid;gap:22px;margin-top:28px}
+@media(min-width:760px){.menu-grid{grid-template-columns:repeat(3,1fr)}}
+.card{background:var(--green2);border:1px solid rgba(217,179,102,.35);border-radius:10px;padding:24px}
+.card h3{color:var(--brass2);font-size:22px;margin-bottom:12px}
+.card ul{list-style:none;margin:0;padding:0}
+.card li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px dotted rgba(246,239,224,.3)}
+.card li span:last-child{color:var(--brass2);white-space:nowrap}
+.card small{display:block;color:#cfc6ad;font-size:13px}
+.hours{max-width:520px;margin-top:20px;background:#fff;border:1px solid var(--cream2);border-radius:10px;padding:8px 22px}
+.hours div{display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--cream2)}
+.hours div:last-child{border:0}
+.hours .closed{color:#8a5a2b}
+.two{display:grid;gap:32px}
+@media(min-width:820px){.two{grid-template-columns:1fr 1fr}}
+.events{display:grid;gap:14px;margin-top:20px}
+.ev{display:flex;gap:16px;align-items:center;background:#fff;border:1px solid var(--cream2);border-radius:10px;padding:14px 16px}
+.date{background:var(--green);color:var(--brass2);font-family:var(--serif);text-align:center;border-radius:8px;padding:8px 12px;min-width:68px;font-size:14px;line-height:1.2}
+.date b{display:block;font-size:22px;color:var(--cream)}
+.ev h3{font-size:18px}
+.ev p{margin:2px 0 0;font-size:14.5px;color:#4a463a}
+form{display:grid;gap:16px;margin-top:24px;max-width:720px}
+.row{display:grid;gap:16px}
+@media(min-width:640px){.row{grid-template-columns:1fr 1fr}}
+label{display:block;font-weight:600;font-size:14.5px;margin-bottom:6px}
+input,select,textarea{width:100%;font:inherit;padding:12px 14px;border-radius:6px;border:1.5px solid #cfc3a5;background:#fffdf7;color:var(--ink)}
+.note{font-size:14px;color:#4a463a;margin:0}
+.demo-msg{display:none;background:#fff3cf;color:#6b4a00;padding:12px 14px;border-radius:6px;border:1px dashed var(--brass)}
+.find{display:grid;gap:28px}
+@media(min-width:820px){.find{grid-template-columns:1fr 1fr}}
+.map{flex-direction:column;min-height:260px;border-radius:10px;border:1px solid rgba(217,179,102,.5);background:repeating-linear-gradient(45deg,#1d4630 0 14px,#194029 14px 28px);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;color:var(--brass2);font-family:var(--serif);font-size:20px}
+.map small{display:block;font:13px var(--sans);color:#cfc6ad;margin-top:6px}
+address{font-style:normal;font-size:19px;margin:12px 0}
+.dark a.link{color:var(--brass2)}
+footer{background:#0d2015;color:#cfc6ad;padding:36px 0;font-size:14.5px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
+footer .logo{font-size:20px}
+.demo-by{font-size:12.5px;opacity:.8;width:100%;text-align:center;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;margin-top:6px}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="banner">Design demo only – not the pub's official website. Items tagged “Demo content” are placeholders to be confirmed.</div>
+<header class="nav">
+<div class="wrap">
+<a class="logo" href="#top">Cask &amp; Barrel</a>
+<nav aria-label="Main"><ul>
+<li><a href="#about">About</a></li><li><a href="#menu">Drinks</a></li><li><a href="#hours">Hours</a></li><li><a href="#whats-on">What’s on</a></li><li><a href="#private-hire">Private hire</a></li><li><a href="#find-us">Find us</a></li>
+</ul></nav>
+</div>
+</header>
+<main id="main">
+<div class="hero" id="top">
+<div class="wrap">
+<p class="eyebrow">High Street · Yarm</p>
+<h1>Real ale, <em>proper</em> pub.</h1>
+<p class="lead">Rotating cask ales, fine wines and single malts in the heart of Yarm. Pull up a stool, have a pint and a chat.</p>
+<div class="btns"><a class="btn" href="#menu">See what’s on tap</a><a class="btn ghost" href="#private-hire">Book private hire</a></div>
+</div>
+</div>
+
+<section id="about"><div class="wrap about">
+<div>
+<p class="kicker">About us</p>
+<h2>A traditional pub for a new generation</h2>
+<p>Cask &amp; Barrel opened on Yarm High Street in 2025 in the former Arabian Nights building at Winpenny House. We’re all about a rotating selection of real ales, alongside wines and whiskies you won’t find elsewhere on the street.</p>
+<p>Think good conversation, friendly staff and a relaxed atmosphere. Come in for a quiet afternoon pint or an evening with friends.</p>
+<p class="note"><span class="tag">Demo content - to be confirmed</span> Wording is illustrative; the owners would supply their own story.</p>
+</div>
+<ul class="facts">
+<li><b>Six hand pulls</b>Changing real ales, often including porter and stout.</li>
+<li><b>Wines &amp; single malts</b>A carefully chosen range alongside the cask line-up.</li>
+<li><b>Family friendly &amp; Wi-Fi</b>Relaxed, quiet enough for a proper chat.</li>
+</ul>
+</div></section>
+
+<section id="menu" class="dark"><div class="wrap">
+<p class="kicker">Drinks</p>
+<h2>On the bar</h2>
+<p>A sample layout. <span class="tag">Demo content - to be confirmed</span></p>
+<div class="menu-grid">
+<div class="card"><h3>Cask Ales</h3><ul>
+<li><span>Local pale ale<small>4.0% · Placeholder</small></span><span>£0.00</span></li>
+<li><span>Ruby ale<small>4.3% · Placeholder</small></span><span>£0.00</span></li>
+<li><span>Dark porter<small>5.0% · Placeholder</small></span><span>£0.00</span></li>
+<li><span>Guest stout<small>4.6% · Placeholder</small></span><span>£0.00</span></li></ul></div>
+<div class="card"><h3>Wines</h3><ul>
+<li><span>House red<small>Placeholder</small></span><span>£0.00</span></li>
+<li><span>House white<small>Placeholder</small></span><span>£0.00</span></li>
+<li><span>Rosé<small>Placeholder</small></span><span>£0.00</span></li>
+<li><span>Sparkling<small>Placeholder</small></span><span>£0.00</span></li></ul></div>
+<div class="card"><h3>Single Malts</h3><ul>
+<li><span>Speyside malt<small>Placeholder</small></span><span>£0.00</span></li>
+<li><span>Highland malt<small>Placeholder</small></span><span>£0.00</span></li>
+<li><span>Islay malt<small>Placeholder</small></span><span>£0.00</span></li>
+<li><span>Bar snacks<small>Placeholder</small></span><span>£0.00</span></li></ul></div>
+</div>
+</div></section>
+
+<section id="hours"><div class="wrap two">
+<div>
+<p class="kicker">Opening hours</p>
+<h2>When to find us</h2>
+<p><span class="tag">Demo content - to be confirmed</span></p>
+<p class="note">Hours are indicative from public listings, which disagree on Sundays. The pub would confirm the real times.</p>
+</div>
+<div class="hours" role="table" aria-label="Opening hours (to be confirmed)">
+<div role="row"><span>Monday</span><span class="closed">Closed</span></div>
+<div role="row"><span>Tuesday</span><span class="closed">Closed</span></div>
+<div role="row"><span>Wednesday</span><span>12:00 – 22:00</span></div>
+<div role="row"><span>Thursday</span><span>12:00 – 22:00</span></div>
+<div role="row"><span>Friday</span><span>12:00 – 22:00</span></div>
+<div role="row"><span>Saturday</span><span>12:00 – 22:00</span></div>
+<div role="row"><span>Sunday</span><span>TBC</span></div>
+</div>
+</div></section>
+
+<section id="whats-on" style="background:var(--cream2)"><div class="wrap">
+<p class="kicker">What’s on</p>
+<h2>Events &amp; regulars</h2>
+<p><span class="tag">Demo content - to be confirmed</span></p>
+<div class="events">
+<div class="ev"><div class="date">Weekly<b>Wed</b></div><div><h3>Quiz night</h3><p>Sample event. Time and format to be confirmed.</p></div></div>
+<div class="ev"><div class="date">Monthly<b>TBC</b></div><div><h3>Meet the brewer</h3><p>Placeholder event to show how special nights could be listed.</p></div></div>
+<div class="ev"><div class="date">Seasonal<b>TBC</b></div><div><h3>New beer launch</h3><p>Placeholder event for new cask arrivals.</p></div></div>
+</div>
+</div></section>
+
+<section id="private-hire"><div class="wrap">
+<p class="kicker">Private hire</p>
+<h2>Celebrate with us</h2>
+<p>Birthdays, wakes, team nights or a tasting evening – tell us what you have in mind.</p>
+<p><span class="tag">Demo content - to be confirmed</span> <span class="note">Demo form: it doesn’t send anything.</span></p>
+<form id="demo-form" novalidate>
+<div class="row"><div><label for="n">Your name</label><input id="n" autocomplete="name"></div>
+<div><label for="e">Email</label><input id="e" type="email" autocomplete="email"></div></div>
+<div class="row"><div><label for="d">Preferred date</label><input id="d" type="date"></div>
+<div><label for="g">Number of guests</label><input id="g" type="number" min="1" inputmode="numeric"></div></div>
+<div><label for="t">Type of event</label><select id="t"><option>Birthday</option><option>Celebration</option><option>Work event</option><option>Other</option></select></div>
+<div><label for="m">Anything else?</label><textarea id="m" rows="4"></textarea></div>
+<button class="btn" type="submit">Send enquiry (demo)</button>
+<p class="demo-msg" id="dm" role="status">This is a demo form – nothing has been sent.</p>
+</form>
+</div></section>
+
+<section id="find-us" class="dark"><div class="wrap find">
+<div>
+<p class="kicker">Find us</p>
+<h2>On Yarm High Street</h2>
+<address>Cask &amp; Barrel<br>Winpenny House<br>137 High Street<br>Yarm TS15 9AY</address>
+<p>At the north end of the High Street, close to bus routes.</p>
+<p>Email (public listing): <a class="link" href="mailto:contact@caskandbarrelyarm.uk">contact@caskandbarrelyarm.uk</a></p>
+<p>Phone: <span class="tag">Demo content - to be confirmed</span></p>
+<p><a class="btn" href="https://www.google.com/maps/search/?api=1&query=Cask+%26+Barrel+137+High+Street+Yarm+TS15+9AY" rel="noopener">Get directions</a></p>
+</div>
+<div class="map" role="img" aria-label="Map placeholder">Yarm High Street<small>Map placeholder · TS15 9AY</small></div>
+</div></section>
+</main>
+<footer><div class="wrap">
+<a class="logo" href="#top">Cask &amp; Barrel</a>
+<span>Winpenny House, 137 High Street, Yarm TS15 9AY</span>
+<span>Please drink responsibly.</span>
+<p class="demo-by">Demo by Mark Aszkenasy · Concept only, not affiliated with or approved by Cask &amp; Barrel · Demo content - to be confirmed</p>
+</div></footer>
+<script>
+document.getElementById('demo-form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('dm').style.display='block'});
+</script>
+</body>
+</html>
