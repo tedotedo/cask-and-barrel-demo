@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" role="img" aria-labelledby="t"><title id="t">C&amp;B monogram in a cask-end roundel (concept design, not the pub's logo)</title>
+<circle cx="50" cy="50" r="48" fill="#14301f" stroke="#d9b366" stroke-width="3"/>
+<circle cx="50" cy="50" r="41" fill="none" stroke="#d9b366" stroke-width="1.5"/>
+<g stroke="#d9b366" stroke-width=".8" opacity=".35"><path d="M50 9v82M36 11v78M64 11v78M22 18v64M78 18v64"/></g>
+<circle cx="50" cy="50" r="30" fill="#1d4630" stroke="#d9b366" stroke-width="1"/>
+<text x="50" y="60" text-anchor="middle" font-family="Fraunces,Georgia,'Times New Roman',serif" font-weight="700" font-size="30" fill="#f6efe0">C&amp;B</text>
+</svg>
