@@ -54,6 +54,72 @@ var FORM_ENDPOINT = null;
       if (!r.ok) throw new Error('sheet ' + r.status); return r.text();
     }).then(function (t) { return CB.boardFromCsv(t, c.board.handPulls); }).catch(function () { return null; });
   }
+  /* ---------- Back-bar range lightbox (native <dialog>: focus trap, Esc, aria-modal) ---------- */
+  var rangeDlg = null;
+  function setupRanges(c) {
+    var ranges = (c.menu && c.menu.ranges) || {};
+    if (typeof HTMLDialogElement === 'undefined' || !Object.keys(ranges).length) return;
+    var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!rangeDlg) {
+      rangeDlg = document.createElement('dialog');
+      rangeDlg.className = 'range-dlg';
+      rangeDlg.setAttribute('aria-labelledby', 'range-title');
+      rangeDlg.setAttribute('aria-modal', 'true');
+      rangeDlg.innerHTML = '<div class="range-panel"><button type="button" class="range-close" aria-label="Close">&times;</button>' +
+        '<h3 id="range-title"></h3><div class="range-fig"></div><p class="range-cap"></p></div>';
+      document.body.appendChild(rangeDlg);
+      rangeDlg.addEventListener('click', function (e) { if (e.target === rangeDlg) rangeDlg.close(); });
+      rangeDlg.addEventListener('keydown', function (e) {
+        if (e.key !== 'Tab') return;
+        var f = $$('button, [href], [tabindex]:not([tabindex="-1"])', rangeDlg);
+        if (!f.length) return;
+        var first = f[0], last = f[f.length - 1];
+        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+        else if (!rangeDlg.contains(document.activeElement)) { e.preventDefault(); first.focus(); }
+      });
+      rangeDlg.querySelector('.range-close').addEventListener('click', function () { rangeDlg.close(); });
+    }
+    function open(key, trigger) {
+      var rg = ranges[key]; if (!rg) return;
+      var im = rg.image;
+      rangeDlg.querySelector('#range-title').textContent = rg.title;
+      function pic(x) { return '<figure><picture><source type="image/webp" srcset="' + CB.esc(x.base) + '.webp"><img src="' + CB.esc(x.base) + '.jpg" width="' + x.width + '" height="' + x.height + '" alt="' + CB.esc(x.alt) + '"></picture><figcaption>' + CB.esc(x.caption || rg.caption || c.menu.rangeCaption) + '</figcaption></figure>'; }
+      rangeDlg.querySelector('.range-fig').innerHTML = pic(Object.assign({}, im, { caption: rg.caption })) + (rg.glass ? pic(rg.glass) : '');
+      rangeDlg.querySelector('.range-cap').hidden = true;
+      rangeDlg.showModal();
+      var panel = rangeDlg.querySelector('.range-panel');
+      if (!reduce && trigger && panel.animate) {
+        var t = trigger.getBoundingClientRect(), p = panel.getBoundingClientRect();
+        var dx = (t.left + t.width / 2) - (p.left + p.width / 2), dy = (t.top + t.height / 2) - (p.top + p.height / 2);
+        var sc = Math.max(0.2, Math.min(0.8, t.width / p.width));
+        panel.animate([{ transform: 'translate(' + dx + 'px,' + dy + 'px) scale(' + sc + ')', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 380, easing: 'cubic-bezier(.2,.8,.2,1)' });
+      }
+    }
+    $$('.drink-card').forEach(function (card) {
+      // rows become real buttons (keyboard); the card background also opens the first range
+      $$('li[data-range] .style-top strong', card).forEach(function (s) {
+        var li = s.closest('li'), b = document.createElement('button');
+        b.type = 'button'; b.className = 'range-btn'; b.textContent = s.textContent;
+        b.setAttribute('aria-haspopup', 'dialog');
+        b.setAttribute('aria-label', s.textContent + ': see a back bar (AI illustration)');
+        s.replaceWith(b); li.classList.add('has-range');
+      });
+      var first = card.getAttribute('data-range');
+      if (first && !card.querySelector('.range-open')) {
+        var o = document.createElement('button'); o.type = 'button'; o.className = 'range-open';
+        o.setAttribute('aria-haspopup', 'dialog');
+        o.textContent = 'See a back bar ›';
+        o.setAttribute('aria-label', 'See a back bar for ' + card.querySelector('h3').textContent + ' (AI illustration)');
+        var ask = card.querySelector('.ask-line'); card.insertBefore(o, ask || null);
+      }
+      card.addEventListener('click', function (e) {
+        var row = e.target.closest('li[data-range]'), trig = e.target.closest('button');
+        var key = row ? row.getAttribute('data-range') : card.getAttribute('data-range');
+        if (key) open(key, row || card);
+      });
+    });
+  }
   function hydrate(c) {
     var now = new Date(), example = qs.get('example') === '1';
     var r = CB.regions(c, now, example);
@@ -63,6 +129,7 @@ var FORM_ENDPOINT = null;
     });
     $('#reviews').hidden = !((c.reviews && c.reviews.length) || (c.badges && c.badges.length));
     markToday(c);
+    setupRanges(c);
     fetchBoard(c).then(function (sheetBoard) {
       if (sheetBoard) setRegion('board', CB.renderBoard(Object.assign({ emptyText: c.board.emptyText }, sheetBoard), {}));
       else setRegion('board', r.board);

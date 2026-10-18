@@ -195,25 +195,29 @@
             "name": "Red",
             "note": "Soft, ripe and fruity.",
             "level": 3,
-            "pairing": "Try with a pie or a roast"
+            "pairing": "Try with a pie or a roast",
+            "range": "wine"
           },
           {
             "name": "White",
             "note": "Crisp, fresh and citrusy.",
             "level": 1,
-            "pairing": "Try with fish or something light"
+            "pairing": "Try with fish or something light",
+            "range": "wine"
           },
           {
             "name": "Rosé",
             "note": "Pale, dry and red-berry fresh.",
             "level": 1,
-            "pairing": "Try with a sunny afternoon"
+            "pairing": "Try with a sunny afternoon",
+            "range": "wine"
           },
           {
             "name": "Sparkling",
             "note": "Dry, bright and bubbly.",
             "level": 1,
-            "pairing": "Try as a toast"
+            "pairing": "Try as a toast",
+            "range": "wine"
           }
         ],
         "bottles": []
@@ -231,19 +235,22 @@
             "name": "Speyside",
             "note": "Honey, orchard fruit, gentle.",
             "level": 1,
-            "pairing": "Try with shortbread or a mild cheese"
+            "pairing": "Try with shortbread or a mild cheese",
+            "range": "speyside"
           },
           {
             "name": "Highland",
             "note": "Heather, spice, fuller.",
             "level": 2,
-            "pairing": "Try with a ploughman’s"
+            "pairing": "Try with a ploughman’s",
+            "range": "highland"
           },
           {
             "name": "Islay",
             "note": "Peat smoke, sea salt, medicine-chest.",
             "level": 4,
-            "pairing": "Try with dark chocolate"
+            "pairing": "Try with dark chocolate",
+            "range": "islay"
           }
         ],
         "bottles": []
@@ -251,7 +258,79 @@
     ],
     "guideLabel": "Style guide, not a stock list",
     "askLine": "Ask at the bar for today’s bottles.",
-    "_bottleFormat": "Add real bottles to a group’s \"bottles\" array: { \"name\": \"…\", \"price\": 4.5, \"note\": null }. Price and note can be null (hidden). They then show above the style guide. Only add what the pub confirms."
+    "_bottleFormat": "Add real bottles to a group’s \"bottles\" array: { \"name\": \"…\", \"price\": 4.5, \"note\": null }. Price and note can be null (hidden). They then show above the style guide. Only add what the pub confirms.",
+    "rangeCaption": "AI-generated illustration of a back bar, not the pub’s actual stock",
+    "rangeHint": "Tap a card or style to see a back bar",
+    "ranges": {
+      "speyside": {
+        "title": "Speyside malts",
+        "image": {
+          "base": "images/range-speyside",
+          "width": 1024,
+          "height": 576,
+          "alt": "Illustration of a warmly lit back bar with rows of amber single malt whisky bottles on wooden shelves"
+        },
+        "caption": "AI-generated illustration of a back bar, not the pub’s actual stock",
+        "glass": {
+          "base": "images/glass-speyside",
+          "width": 1024,
+          "height": 576,
+          "alt": "Close-up of a glass of golden Speyside-style single malt whisky, softly lit",
+          "caption": "AI-generated illustration, not the pub’s actual stock"
+        }
+      },
+      "highland": {
+        "title": "Highland malts",
+        "image": {
+          "base": "images/range-highland",
+          "width": 1024,
+          "height": 576,
+          "alt": "Illustration of a dark wood back bar lined with single malt bottles and copper-toned lighting"
+        },
+        "caption": "AI-generated illustration of a back bar, not the pub’s actual stock",
+        "glass": {
+          "base": "images/glass-highland",
+          "width": 1024,
+          "height": 576,
+          "alt": "Close-up of a glass of amber Highland-style single malt whisky, softly lit",
+          "caption": "AI-generated illustration, not the pub’s actual stock"
+        }
+      },
+      "islay": {
+        "title": "Islay malts",
+        "image": {
+          "base": "images/range-islay",
+          "width": 1024,
+          "height": 576,
+          "alt": "Illustration of a moody back bar with smoky-looking whisky bottles and dim lamps"
+        },
+        "caption": "AI-generated illustration of a back bar, not the pub’s actual stock",
+        "glass": {
+          "base": "images/glass-islay",
+          "width": 1024,
+          "height": 576,
+          "alt": "Close-up of a glass of Islay-style single malt whisky with a wisp of smoke, softly lit",
+          "caption": "AI-generated illustration, not the pub’s actual stock"
+        }
+      },
+      "wine": {
+        "title": "Wines",
+        "image": {
+          "base": "images/range-wine",
+          "width": 1024,
+          "height": 576,
+          "alt": "Illustration of a back bar with racks of red, white, rosé and sparkling wine bottles and glasses"
+        },
+        "caption": "AI-generated illustration of a back bar, not the pub’s actual stock",
+        "glass": {
+          "base": "images/glass-wine",
+          "width": 1024,
+          "height": 576,
+          "alt": "Close-up of four glasses side by side: red, white, rosé and sparkling wine",
+          "caption": "AI-generated illustration, not the pub’s actual stock"
+        }
+      }
+    }
   },
   "events": [],
   "_eventFormat": "{ \"title\": \"Quiz night\", \"date\": \"2026-10-22\", \"time\": \"20:00\", \"endTime\": \"22:00\", \"description\": \"…\" } – past events hide automatically. Only add events the pub has confirmed.",

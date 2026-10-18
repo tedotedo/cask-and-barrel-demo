@@ -244,7 +244,7 @@
     return m.groups.map(function (g) {
       var labels = g.scaleLabels || ['', ''];
       var bottles = (g.bottles || []).filter(function (i) { return i && has(i.name); });
-      var h = '<div class="card drink-card"><div class="drink-head">' + (MENU_ICONS[g.icon] ? '<span class="drink-icon">' + MENU_ICONS[g.icon] + '</span>' : '') +
+      var h = '<div class="card drink-card" data-range="' + esc((g.styles && g.styles[0] && g.styles[0].range) || '') + '"><div class="drink-head">' + (MENU_ICONS[g.icon] ? '<span class="drink-icon">' + MENU_ICONS[g.icon] + '</span>' : '') +
         '<div><h3>' + esc(g.title) + '</h3>' + (has(g.blurb) ? '<p class="drink-blurb">' + esc(g.blurb) + '</p>' : '') + '</div></div>';
       if (bottles.length) {
         h += '<p class="guide-label">On the shelf</p><ul class="bottles">' + bottles.map(function (i) {
@@ -254,7 +254,7 @@
       if (has(m.guideLabel)) h += '<p class="guide-label">' + esc(m.guideLabel) + '</p>';
       h += '<ul class="styles">' + (g.styles || []).map(function (i) {
         var lvl = typeof i.level === 'number' ? Math.max(0, Math.min(4, Math.round(i.level))) : null;
-        return '<li><div class="style-top"><strong>' + esc(i.name) + '</strong>' +
+        return '<li' + (has(i.range) ? ' data-range="' + esc(i.range) + '"' : '') + '><div class="style-top"><strong>' + esc(i.name) + '</strong>' +
           (lvl !== null ? '<span class="meter" role="img" aria-label="' + esc(labels[0] + ' to ' + labels[1] + ': ' + lvl + ' out of 4') + '">' +
             [1, 2, 3, 4].map(function (n) { return '<i' + (n <= lvl ? ' class="on"' : '') + '></i>'; }).join('') + '</span>' : '') + '</div>' +
           (has(i.note) ? '<span class="style-note">' + esc(i.note) + '</span>' : '') +

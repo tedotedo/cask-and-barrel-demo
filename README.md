@@ -92,3 +92,12 @@ NODE_PATH=/path/to/node_modules node tests/browser.js
 ## Form
 
 The enquiry form validates and shows a success message but **sends nothing** (`FORM_ENDPOINT` is `null` in `js/app.js`). See the wiring comment above the form in `index.html` (Formspree-style endpoint) before going live.
+
+## Drinks: style guide and back-bar lightbox
+
+The Wines and Single malts cards are a **style guide, not a stock list** (tasting notes, a light-to-full/gentle-to-smoky meter, pairing nudges, "Ask at the bar for today's bottles"). Everything is in `content.json` under `menu`:
+
+- `groups[].styles[]`: `name`, `note`, `level` (0–4), `pairing`, `range` (key into `menu.ranges`).
+- `groups[].bottles[]`: add the pub's real bottles here (`name`, `price`, `note`; null price/note hide). They appear above the style guide. Empty by default; never invent stock.
+- `menu.ranges.<key>`: `title`, `image` (back bar), `glass` (close-up glass), each with `base` (`.webp` + `.jpg`), `width`, `height`, `alt`, `caption`. Clicking a card or style row opens a native `<dialog>` lightbox showing both (side by side on desktop, stacked on mobile): focus trap, Esc, close button, click outside, zoom from the card (off with reduced motion).
+- The images are AI-generated illustrations and are captioned as such. Replace them with real photos after the visit.

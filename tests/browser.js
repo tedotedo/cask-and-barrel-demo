@@ -102,5 +102,31 @@ const sleep = ms => new Promise(r => setTimeout(r, ms));
     assert.ok(await visible(p, '.clip video'), 'video has native controls without JS'); assert.ok(await p.$eval('.clip video', v => v.hasAttribute('controls'))); await p.close();
   });
   await t('hours: today row highlighted by JS', async () => { const p = await open(1280); const n = await p.$$eval('.hours-table tr.today', r => r.length); const d = new Date().toLocaleDateString('en-GB', { weekday: 'short', timeZone: 'Europe/London' }); assert.ok(n <= 1 && (d === 'Sun' ? n === 0 : n === 1)); await p.close(); });
+  await t('range lightbox: opens from row, modal, caption, focus trap, Esc, close button, backdrop, focus returns', async () => {
+    const p = await open(390);
+    await p.evaluate(() => document.querySelector('#menu').scrollIntoView());
+    assert.ok(await p.$('.range-btn'), 'rows upgraded to buttons');
+    await p.focus('li[data-range="islay"] .range-btn'); await p.keyboard.press('Enter'); await new Promise(r => setTimeout(r, 600));
+    assert.ok(await p.$eval('dialog.range-dlg', d => d.open)); assert.strictEqual(await p.$eval('dialog.range-dlg', d => d.getAttribute('aria-modal')), 'true');
+    const caps = await p.$$eval('.range-fig figcaption', e => e.map(x => x.textContent)); assert.ok(caps[0].includes('AI-generated illustration of a back bar, not the pub’s actual stock')); assert.ok(caps[1].includes('AI-generated illustration, not the pub’s actual stock')); assert.strictEqual(await p.$$eval('.range-fig img', e => e.length), 2); assert.ok((await p.$$eval('.range-fig img', e => e[1].src)).includes('glass-islay'));
+    assert.ok((await p.$eval('.range-fig img', e => e.src)).includes('range-islay')); assert.ok((await p.$eval('.range-fig img', e => e.alt)).length > 10);
+    for (let i = 0; i < 4; i++) { await p.keyboard.press('Tab'); assert.ok(await p.evaluate(() => !!document.activeElement.closest('dialog.range-dlg')), 'focus trapped'); }
+    await p.keyboard.press('Escape'); assert.ok(!(await p.$eval('dialog.range-dlg', d => d.open)));
+    assert.ok(await p.evaluate(() => document.activeElement.classList.contains('range-btn')), 'focus returned');
+    await p.click('li[data-range="wine"] .range-btn'); await new Promise(r => setTimeout(r, 500));
+    assert.ok((await p.$eval('.range-fig img', e => e.src)).includes('range-wine'));
+    await p.click('.range-close'); assert.ok(!(await p.$eval('dialog.range-dlg', d => d.open)));
+    await p.click('.drink-card .ask-line'); await new Promise(r => setTimeout(r, 500)); assert.ok(await p.$eval('dialog.range-dlg', d => d.open));
+    await p.mouse.click(5, 5); assert.ok(!(await p.$eval('dialog.range-dlg', d => d.open)), 'click outside closes'); await p.close();
+  });
+  await t('range lightbox: reduced motion opens without zoom animation; every malt row maps to its image', async () => {
+    const p = await open(1280, base, { reduced: true });
+    await p.evaluate(() => { window.__anim = 0; const o = Element.prototype.animate; Element.prototype.animate = function () { window.__anim++; return o.apply(this, arguments); }; });
+    for (const k of ['speyside', 'highland', 'islay']) {
+      await p.click('li[data-range="' + k + '"] .range-btn'); await new Promise(r => setTimeout(r, 200));
+      assert.ok((await p.$eval('.range-fig img', e => e.src)).includes('range-' + k)); await p.keyboard.press('Escape');
+    }
+    assert.strictEqual(await p.evaluate(() => window.__anim), 0); await p.close();
+  });
   await b.close(); console.log('\n' + n + ' passed, ' + fail + ' failed'); process.exit(fail ? 1 : 0);
 })();

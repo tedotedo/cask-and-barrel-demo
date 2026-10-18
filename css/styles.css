@@ -314,3 +314,23 @@ footer .logo{font-size:20px}
 .meter i.on{background:linear-gradient(90deg,#d9b366,#c8673a)}
 .meter-key{display:flex;justify-content:space-between;font-size:12px;color:#cfc6ad;margin:8px 0 0}
 .ask-line{margin:14px 0 0;padding-top:12px;border-top:1px solid rgba(217,179,102,.3);font-size:14px;color:var(--brass2)}
+
+.drink-card{cursor:pointer}
+.range-btn{all:unset;box-sizing:border-box;cursor:pointer;font-family:Fraunces,Georgia,serif;font-size:18px;font-weight:600;border-bottom:1px dashed var(--brass2)}
+.range-btn:hover{color:var(--brass2)}
+.range-btn:focus-visible,.range-open:focus-visible,.range-close:focus-visible{outline:3px solid var(--brass2);outline-offset:3px}
+.range-open{all:unset;box-sizing:border-box;cursor:pointer;margin-top:14px;color:var(--brass2);font-size:14px;font-weight:600;text-decoration:underline;text-underline-offset:3px}
+.range-open:focus-visible{outline:3px solid var(--brass2);outline-offset:3px}
+.range-dlg{border:0;padding:0;background:transparent;max-width:min(960px,94vw);width:100%;color:var(--cream,#f6efe0);overflow:visible}
+.range-dlg::backdrop{background:rgba(5,15,9,.82)}
+.range-panel{position:relative;background:#14301f;border:1px solid rgba(217,179,102,.5);border-radius:12px;padding:20px;max-height:92vh;overflow:auto}
+.range-panel h3{color:var(--brass2);margin:0 44px 12px 0;font-size:24px}
+.range-fig img{display:block;width:100%;height:auto;border-radius:8px}
+.range-cap{margin:12px 0 0;font-size:14px;color:#e4dcc5}
+.range-close{position:absolute;top:10px;right:10px;width:44px;height:44px;border-radius:50%;border:1px solid var(--brass2);background:#14301f;color:var(--brass2);font-size:28px;line-height:1;cursor:pointer}
+
+.range-fig{display:grid;gap:14px}
+.range-fig figure{margin:0}
+.range-fig figcaption{font-size:13px;color:#e4dcc5;margin-top:6px}
+@media(min-width:760px){.range-fig{grid-template-columns:1fr 1fr}}
+.range-fig img{aspect-ratio:auto}
