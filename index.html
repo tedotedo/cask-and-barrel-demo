@@ -98,6 +98,7 @@ figure.photo{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--
 .about figure.photo{margin-bottom:18px}
 .gallery{display:grid;gap:18px;margin-top:22px}
 @media(min-width:760px){.gallery{grid-template-columns:repeat(3,1fr)}.gallery .photo img{aspect-ratio:4/3;object-fit:cover}}
+.clip video{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;background:#1a1410}.about figure.clip{margin-bottom:18px}
 .credits{width:100%;font-size:12.5px;line-height:1.5;opacity:.9}
 .credits ul{margin:6px 0 0;padding-left:18px}
 .credits a{color:var(--brass2)}
@@ -147,6 +148,7 @@ nav a:hover:after,nav a:focus-visible:after{transform:scaleX(1)}
 <p class="note"><span class="tag">Demo content - to be confirmed</span> Wording is illustrative; the owners would supply their own story.</p>
 </div>
 <div>
+<figure class="photo clip"><video muted loop playsinline autoplay preload="metadata" poster="media/barmaid-pint.jpg" width="960" height="720" aria-label="AI-generated video of an invented barmaid pulling a pint of real ale at a hand pump (illustrative, not the pub or its staff)"><source src="media/barmaid-pint.mp4" type="video/mp4"></video><figcaption>A pint being pulled · AI-generated illustrative footage, not the pub or its staff</figcaption></figure>
 <figure class="photo"><img src="images/real-ale-handpumps-and-porter.jpg" width="1100" height="816" loading="lazy" decoding="async" alt="A row of brass-topped real ale hand pulls on a pub bar, with a dark pint of porter in the foreground (illustrative photo, not Cask &amp; Barrel)"><figcaption>Illustrative photo · not Cask &amp; Barrel <a href="#photo-credits">Credit</a></figcaption></figure>
 <ul class="facts">
 <li><b>Six hand pulls</b>Changing real ales, often including porter and stout.</li>
@@ -182,9 +184,9 @@ nav a:hover:after,nav a:focus-visible:after{transform:scaleX(1)}
 <section id="around" style="padding-bottom:24px"><div class="wrap">
 <p class="kicker">Around the pub</p>
 <h2>Whisky, the bridge &amp; the viaduct</h2>
-<p class="note"><span class="tag">Demo content - to be confirmed</span> Illustrative photos from Wikimedia Commons, not of Cask &amp; Barrel itself.</p>
+<p class="note"><span class="tag">Demo content - to be confirmed</span> Illustrative photos from Wikimedia Commons and AI-generated clips, not of Cask &amp; Barrel itself.</p>
 <div class="gallery">
-<figure class="photo"><img src="images/scotch-whisky-glass.jpg" width="1000" height="694" loading="lazy" decoding="async" alt="A glass of Scotch whisky on a dark table (illustrative photo)"><figcaption>A dram of Scotch <a href="#photo-credits">Credit</a></figcaption></figure>
+<figure class="photo clip"><video muted loop playsinline autoplay preload="metadata" poster="media/whiskey-pour.jpg" width="960" height="720" aria-label="AI-generated slow-motion video of whiskey being poured over ice in a glass (illustrative)"><source src="media/whiskey-pour.mp4" type="video/mp4"></video><figcaption>Whiskey over ice, in slow motion · AI-generated illustrative footage, not the pub or its staff</figcaption></figure>
 <figure class="photo"><img src="images/yarm-bridge-river-tees.jpg" width="1400" height="788" loading="lazy" decoding="async" alt="The old stone arched Yarm Bridge crossing the River Tees on a bright day, with green riverbank in the foreground"><figcaption>Yarm Bridge over the Tees <a href="#photo-credits">Credit</a></figcaption></figure>
 <figure class="photo"><img src="images/yarm-viaduct-river-tees.jpg" width="1000" height="562" loading="lazy" decoding="async" alt="Yarm railway viaduct reflected in the River Tees"><figcaption>Yarm Viaduct over the Tees <a href="#photo-credits">Credit</a></figcaption></figure>
 </div>
@@ -253,17 +255,17 @@ nav a:hover:after,nav a:focus-visible:after{transform:scaleX(1)}
 <a class="logo" href="#top">Cask &amp; Barrel</a>
 <span>Winpenny House, 137 High Street, Yarm TS15 9AY</span>
 <span>Please drink responsibly.</span>
-<div class="credits" id="photo-credits"><b>Photos: Wikimedia Commons.</b> Illustrative only; none shows Cask &amp; Barrel. Images resized and, where noted, cropped.
+<div class="credits" id="photo-credits"><b>Photos: Wikimedia Commons.</b> Illustrative only; none shows Cask &amp; Barrel. The two video clips (whiskey pour, barmaid pulling a pint) are AI-generated illustrative footage; the person shown is invented and not the pub or its staff. Images resized and, where noted, cropped.
 <ul>
 <li>Bar interior: “Interior of a traditional London pub” by Alan Hughes, <a href="https://creativecommons.org/licenses/by-sa/2.0" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Interior_of_a_traditional_London_pub_-_geograph.org.uk_-_8378573.jpg" rel="noopener">Commons page</a></li>
 <li>Hand pulls: “Real ale handpumps with a pint of English Porter” by 55belgianbeerfan, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="noopener">CC0</a>, <a href="https://commons.wikimedia.org/wiki/File:Real_ale_handpumps_with_a_pint_of_English_Porter.jpg" rel="noopener">Commons page</a></li>
-<li>Whisky: “Scotch whisky in Aino Aalto glass” by JIP, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener">CC BY-SA 4.0</a> (cropped), <a href="https://commons.wikimedia.org/wiki/File:Scotch_whisky_in_Aino_Aalto_glass.jpg" rel="noopener">Commons page</a></li>
 <li>Yarm Bridge: “Yarm Bridge” by Simon Cotterill, <a href="https://creativecommons.org/licenses/by-sa/2.0" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Yarm_Bridge_-_geograph.org.uk_-_5794564.jpg" rel="noopener">Commons page</a></li>
 <li>Yarm Viaduct: “Yarm Railway Viaduct over the R Tees (geograph 7379141)” by Colin Park, <a href="https://creativecommons.org/licenses/by-sa/2.0" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Yarm_Railway_Viaduct_over_the_R_Tees_(geograph_7379141).jpg" rel="noopener">Commons page</a></li>
 </ul></div>
 <p class="demo-by">Demo by Mark Aszkenasy · Concept only, not affiliated with or approved by Cask &amp; Barrel · Demo content - to be confirmed</p>
 </div></footer>
 <script>
+(function(){if(matchMedia("(prefers-reduced-motion: reduce)").matches)document.querySelectorAll(".clip video").forEach(function(v){v.removeAttribute("autoplay");v.pause()})})();
 document.getElementById('demo-form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('dm').style.display='block'});
 
 (function(){
