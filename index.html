@@ -28,8 +28,11 @@ nav ul{display:flex;gap:4px 18px;list-style:none;margin:0;padding:0;flex-wrap:wr
 nav a{text-decoration:none;font-size:14px;font-weight:500;padding:8px 2px;display:inline-block}
 nav a:hover{color:var(--brass2)}
 @media(max-width:640px){nav li:nth-child(n+5){display:none}.logo{font-size:18px}}
-.hero{background:radial-gradient(ellipse at 20% 0,#2a5a3f 0,var(--green) 60%);color:var(--cream);padding:72px 0 84px;position:relative;overflow:hidden}
-.hero:after{content:"";position:absolute;inset:auto 0 0 0;height:6px;background:repeating-linear-gradient(90deg,var(--brass) 0 18px,transparent 18px 26px);opacity:.7}
+.hero{background:var(--green);color:var(--cream);padding:72px 0 84px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:-4%;z-index:0;background:linear-gradient(90deg,rgba(14,35,23,.92) 0,rgba(14,35,23,.72) 55%,rgba(14,35,23,.5) 100%),url(images/traditional-pub-bar-interior.jpg) center/cover;animation:heroZoom 28s ease-in-out infinite alternate;will-change:transform}
+@keyframes heroZoom{from{transform:scale(1)}to{transform:scale(1.09) translate3d(-1.2%,-1%,0)}}
+.hero .wrap{position:relative;z-index:1}
+.hero:after{z-index:1;content:"";position:absolute;inset:auto 0 0 0;height:6px;background:repeating-linear-gradient(90deg,var(--brass) 0 18px,transparent 18px 26px);opacity:.7}
 .eyebrow{color:var(--brass2);letter-spacing:.18em;text-transform:uppercase;font-size:13px;font-weight:600;margin:0 0 14px}
 h1,h2,h3{font-family:var(--serif);line-height:1.15;margin:0}
 h1{font-size:clamp(40px,9vw,76px);font-weight:700;max-width:12ch}
@@ -87,10 +90,33 @@ footer{background:#0d2015;color:#cfc6ad;padding:36px 0;font-size:14.5px}
 footer .wrap{display:flex;flex-wrap:wrap;gap:14px 28px;justify-content:space-between;align-items:center}
 footer .logo{font-size:20px}
 .demo-by{font-size:12.5px;opacity:.8;width:100%;text-align:center;border-top:1px solid rgba(255,255,255,.12);padding-top:16px;margin-top:6px}
-@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+figure.photo{margin:0;border-radius:10px;overflow:hidden;border:1px solid var(--cream2);background:var(--cream2)}
+.photo img{display:block;width:100%;height:auto;transition:transform .8s ease}
+.photo:hover img{transform:scale(1.04)}
+.photo figcaption{background:var(--green);color:#cfc6ad;font-size:12.5px;padding:8px 12px}
+.photo figcaption a{color:var(--brass2)}
+.about figure.photo{margin-bottom:18px}
+.gallery{display:grid;gap:18px;margin-top:22px}
+@media(min-width:760px){.gallery{grid-template-columns:repeat(3,1fr)}.gallery .photo img{aspect-ratio:4/3;object-fit:cover}}
+.credits{width:100%;font-size:12.5px;line-height:1.5;opacity:.9}
+.credits ul{margin:6px 0 0;padding-left:18px}
+.credits a{color:var(--brass2)}
+nav a{position:relative}
+nav a:after{content:"";position:absolute;left:2px;right:2px;bottom:3px;height:2px;background:var(--brass2);transform:scaleX(0);transform-origin:left;transition:transform .3s ease}
+nav a:hover:after,nav a:focus-visible:after{transform:scaleX(1)}
+.btn{transition:background .25s,transform .25s,box-shadow .25s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+.card{transition:transform .3s ease,box-shadow .3s ease,border-color .3s}
+.card:hover{transform:translateY(-5px);box-shadow:0 12px 26px rgba(0,0,0,.35);border-color:var(--brass2)}
+.ev{transition:transform .25s,box-shadow .25s}
+.ev:hover{transform:translateX(4px);box-shadow:0 6px 16px rgba(0,0,0,.1)}
+.js .reveal{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease;transition-delay:var(--d,0s)}
+.js .reveal.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.hero-bg{animation:none}.js .reveal{opacity:1;transform:none;transition:none}*,*:before,*:after{transition:none!important}}
 </style>
 </head>
 <body>
+<script>document.documentElement.classList.add("js")</script>
 <a class="skip" href="#main">Skip to content</a>
 <div class="banner">Design demo only – not the pub's official website. Items tagged “Demo content” are placeholders to be confirmed.</div>
 <header class="nav">
@@ -103,6 +129,7 @@ footer .logo{font-size:20px}
 </header>
 <main id="main">
 <div class="hero" id="top">
+<div class="hero-bg" role="img" aria-label="Photo: the bar of a traditional wood-panelled London pub, with brass hand pulls and glass-shaded lamps (illustrative, not Cask &amp; Barrel)"></div>
 <div class="wrap">
 <p class="eyebrow">High Street · Yarm</p>
 <h1>Real ale, <em>proper</em> pub.</h1>
@@ -119,11 +146,14 @@ footer .logo{font-size:20px}
 <p>Think good conversation, friendly staff and a relaxed atmosphere. Come in for a quiet afternoon pint or an evening with friends.</p>
 <p class="note"><span class="tag">Demo content - to be confirmed</span> Wording is illustrative; the owners would supply their own story.</p>
 </div>
+<div>
+<figure class="photo"><img src="images/real-ale-handpumps-and-porter.jpg" width="1100" height="816" loading="lazy" decoding="async" alt="A row of brass-topped real ale hand pulls on a pub bar, with a dark pint of porter in the foreground (illustrative photo, not Cask &amp; Barrel)"><figcaption>Illustrative photo · not Cask &amp; Barrel <a href="#photo-credits">Credit</a></figcaption></figure>
 <ul class="facts">
 <li><b>Six hand pulls</b>Changing real ales, often including porter and stout.</li>
 <li><b>Wines &amp; single malts</b>A carefully chosen range alongside the cask line-up.</li>
 <li><b>Family friendly &amp; Wi-Fi</b>Relaxed, quiet enough for a proper chat.</li>
 </ul>
+</div>
 </div></section>
 
 <section id="menu" class="dark"><div class="wrap">
@@ -146,6 +176,17 @@ footer .logo{font-size:20px}
 <li><span>Highland malt<small>Placeholder</small></span><span>£0.00</span></li>
 <li><span>Islay malt<small>Placeholder</small></span><span>£0.00</span></li>
 <li><span>Bar snacks<small>Placeholder</small></span><span>£0.00</span></li></ul></div>
+</div>
+</div></section>
+
+<section id="around" style="padding-bottom:24px"><div class="wrap">
+<p class="kicker">Around the pub</p>
+<h2>Whisky, High Street &amp; the viaduct</h2>
+<p class="note"><span class="tag">Demo content - to be confirmed</span> Illustrative photos from Wikimedia Commons, not of Cask &amp; Barrel itself.</p>
+<div class="gallery">
+<figure class="photo"><img src="images/scotch-whisky-glass.jpg" width="1000" height="694" loading="lazy" decoding="async" alt="A glass of Scotch whisky on a dark table (illustrative photo)"><figcaption>A dram of Scotch <a href="#photo-credits">Credit</a></figcaption></figure>
+<figure class="photo"><img src="images/yarm-high-street.jpg" width="1000" height="666" loading="lazy" decoding="async" alt="Georgian and Victorian buildings along Yarm High Street in morning sun"><figcaption>Yarm High Street <a href="#photo-credits">Credit</a></figcaption></figure>
+<figure class="photo"><img src="images/yarm-viaduct-river-tees.jpg" width="1000" height="562" loading="lazy" decoding="async" alt="Yarm railway viaduct reflected in the River Tees"><figcaption>Yarm Viaduct over the Tees <a href="#photo-credits">Credit</a></figcaption></figure>
 </div>
 </div></section>
 
@@ -212,10 +253,27 @@ footer .logo{font-size:20px}
 <a class="logo" href="#top">Cask &amp; Barrel</a>
 <span>Winpenny House, 137 High Street, Yarm TS15 9AY</span>
 <span>Please drink responsibly.</span>
+<div class="credits" id="photo-credits"><b>Photos: Wikimedia Commons.</b> Illustrative only; none shows Cask &amp; Barrel. Images resized and, where noted, cropped.
+<ul>
+<li>Bar interior: “Interior of a traditional London pub” by Alan Hughes, <a href="https://creativecommons.org/licenses/by-sa/2.0" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Interior_of_a_traditional_London_pub_-_geograph.org.uk_-_8378573.jpg" rel="noopener">Commons page</a></li>
+<li>Hand pulls: “Real ale handpumps with a pint of English Porter” by 55belgianbeerfan, <a href="http://creativecommons.org/publicdomain/zero/1.0/deed.en" rel="noopener">CC0</a>, <a href="https://commons.wikimedia.org/wiki/File:Real_ale_handpumps_with_a_pint_of_English_Porter.jpg" rel="noopener">Commons page</a></li>
+<li>Whisky: “Scotch whisky in Aino Aalto glass” by JIP, <a href="https://creativecommons.org/licenses/by-sa/4.0" rel="noopener">CC BY-SA 4.0</a> (cropped), <a href="https://commons.wikimedia.org/wiki/File:Scotch_whisky_in_Aino_Aalto_glass.jpg" rel="noopener">Commons page</a></li>
+<li>Yarm High Street: “High Street, Yarm” by Ian S, <a href="https://creativecommons.org/licenses/by-sa/2.0" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:High_Street,_Yarm_-_geograph.org.uk_-_6624736.jpg" rel="noopener">Commons page</a></li>
+<li>Yarm Viaduct: “Yarm Railway Viaduct over the R Tees (geograph 7379141)” by Colin Park, <a href="https://creativecommons.org/licenses/by-sa/2.0" rel="noopener">CC BY-SA 2.0</a>, <a href="https://commons.wikimedia.org/wiki/File:Yarm_Railway_Viaduct_over_the_R_Tees_(geograph_7379141).jpg" rel="noopener">Commons page</a></li>
+</ul></div>
 <p class="demo-by">Demo by Mark Aszkenasy · Concept only, not affiliated with or approved by Cask &amp; Barrel · Demo content - to be confirmed</p>
 </div></footer>
 <script>
 document.getElementById('demo-form').addEventListener('submit',function(e){e.preventDefault();document.getElementById('dm').style.display='block'});
+
+(function(){
+var els=document.querySelectorAll('.about>div,.menu-grid .card,.hours,.ev,#hours .two>div:first-child,#private-hire .wrap>*,#find-us .find>div,.gallery .photo,section h2,.kicker,.facts li');
+var rm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+if(rm||!('IntersectionObserver' in window)){return}
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+els.forEach(function(el,i){el.classList.add('reveal');var sib=Array.prototype.indexOf.call(el.parentNode.children,el);el.style.setProperty('--d',Math.min(sib,4)*.08+'s');io.observe(el)});
+setTimeout(function(){document.querySelectorAll('.reveal:not(.in)').forEach(function(el){var r=el.getBoundingClientRect();if(r.top<innerHeight)el.classList.add('in')})},100);
+})();
 </script>
 </body>
 </html>
