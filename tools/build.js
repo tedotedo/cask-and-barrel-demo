@@ -93,6 +93,8 @@ ${CB.renderPhoto(c.media.about.image, '(min-width:820px) 480px, 100vw')}
 <p class="kicker">${e(c.menu.kicker)}</p>
 <h2>On the bar</h2>
 <div class="board" id="on-the-bar" data-region="board">${R.board}</div>
+<h3 class="dram-title">${e(c.menu.heading)}</h3>
+<p class="dram-intro">${e(c.menu.intro)}</p>
 <div class="menu-grid">
 <div class="contents" data-region="menuGroups">${R.menuGroups}</div>
 ${CB.renderClip(c.media.clips.whiskey)}

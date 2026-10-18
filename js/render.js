@@ -235,11 +235,34 @@
     h += '</ul><p><a class="btn" href="' + esc(s.directionsUrl) + '" rel="noopener">Get directions</a></p>';
     return h;
   }
+  var MENU_ICONS = {
+    glass: '<svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true" focusable="false"><path d="M8 4h16l-1.6 12a6.4 6.4 0 0 1-12.8 0z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M9.2 11h13.6" stroke="currentColor" stroke-width="1.8"/><path d="M16 22.4V28M11 28h10" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>',
+    flame: '<svg viewBox="0 0 32 32" width="34" height="34" aria-hidden="true" focusable="false"><path d="M16 3c1 5 7 8 7 15a7 7 0 0 1-14 0c0-3 1.600-5 3.200-6.500.2 2 .8 3 1.800 3.500C13.500 10 14.500 6 16 3z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M16 27a3.500 3.500 0 0 1-3.500-3.500c0-2 2-3 3.500-5 1.500 2 3.500 3 3.500 5A3.500 3.500 0 0 1 16 27z" fill="currentColor" opacity=".5"/></svg>'
+  };
   function renderMenuGroups(c) {
-    return c.menu.groups.map(function (g) {
-      return '<div class="card"><h3>' + esc(g.title) + '</h3><ul>' + g.items.map(function (i) {
-        return '<li><span>' + esc(i.name) + (has(i.note) ? '<small>' + esc(i.note) + '</small>' : '') + '</span>' + (has(i.price) ? '<span>' + esc(fmtPrice(i.price)) + '</span>' : '') + '</li>';
-      }).join('') + '</ul></div>';
+    var m = c.menu;
+    return m.groups.map(function (g) {
+      var labels = g.scaleLabels || ['', ''];
+      var bottles = (g.bottles || []).filter(function (i) { return i && has(i.name); });
+      var h = '<div class="card drink-card"><div class="drink-head">' + (MENU_ICONS[g.icon] ? '<span class="drink-icon">' + MENU_ICONS[g.icon] + '</span>' : '') +
+        '<div><h3>' + esc(g.title) + '</h3>' + (has(g.blurb) ? '<p class="drink-blurb">' + esc(g.blurb) + '</p>' : '') + '</div></div>';
+      if (bottles.length) {
+        h += '<p class="guide-label">On the shelf</p><ul class="bottles">' + bottles.map(function (i) {
+          return '<li><span>' + esc(i.name) + (has(i.note) ? '<small>' + esc(i.note) + '</small>' : '') + '</span>' + (has(i.price) ? '<span>' + esc(fmtPrice(i.price)) + '</span>' : '') + '</li>';
+        }).join('') + '</ul>';
+      }
+      if (has(m.guideLabel)) h += '<p class="guide-label">' + esc(m.guideLabel) + '</p>';
+      h += '<ul class="styles">' + (g.styles || []).map(function (i) {
+        var lvl = typeof i.level === 'number' ? Math.max(0, Math.min(4, Math.round(i.level))) : null;
+        return '<li><div class="style-top"><strong>' + esc(i.name) + '</strong>' +
+          (lvl !== null ? '<span class="meter" role="img" aria-label="' + esc(labels[0] + ' to ' + labels[1] + ': ' + lvl + ' out of 4') + '">' +
+            [1, 2, 3, 4].map(function (n) { return '<i' + (n <= lvl ? ' class="on"' : '') + '></i>'; }).join('') + '</span>' : '') + '</div>' +
+          (has(i.note) ? '<span class="style-note">' + esc(i.note) + '</span>' : '') +
+          (has(i.pairing) ? '<span class="style-pair">' + esc(i.pairing) + '</span>' : '') + '</li>';
+      }).join('') + '</ul>';
+      if (g.scaleLabels) h += '<p class="meter-key"><span>' + esc(labels[0]) + '</span><span>' + esc(labels[1]) + '</span></p>';
+      if (has(m.askLine)) h += '<p class="ask-line">' + esc(m.askLine) + '</p>';
+      return h + '</div>';
     }).join('');
   }
   function renderReviews(c) {

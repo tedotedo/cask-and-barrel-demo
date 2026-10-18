@@ -7,15 +7,26 @@
     "description": "Concept website design for Cask & Barrel, a real ale pub at 137 High Street, Yarm. Rotating cask ales, wines and single malts. Not the pub's official site.",
     "email": "contact@caskandbarrelyarm.uk",
     "phone": null,
-    "social": { "instagram": null, "facebook": null },
+    "social": {
+      "instagram": null,
+      "facebook": null
+    },
     "address": {
-      "lines": ["Cask & Barrel", "Winpenny House", "137 High Street"],
+      "lines": [
+        "Cask & Barrel",
+        "Winpenny House",
+        "137 High Street"
+      ],
       "locality": "Yarm",
       "region": "Stockton-on-Tees",
       "postcode": "TS15 9AY",
       "country": "GB"
     },
-    "geo": { "lat": 54.51095, "lon": -1.35595, "note": "From an OpenStreetMap Nominatim lookup of 137 High Street, Yarm (building centroid). Approximate; check on site." },
+    "geo": {
+      "lat": 54.51095,
+      "lon": -1.35595,
+      "note": "From an OpenStreetMap Nominatim lookup of 137 High Street, Yarm (building centroid). Approximate; check on site."
+    },
     "directionsUrl": "https://www.google.com/maps/search/?api=1&query=Cask+%26+Barrel+137+High+Street+Yarm+TS15+9AY",
     "locationNote": "At the north end of the High Street, close to bus routes."
   },
@@ -33,7 +44,12 @@
     "secondaryCta": "Book a party",
     "image": {
       "base": "images/traditional-pub-bar-interior",
-      "widths": [480, 800, 1280, 1600],
+      "widths": [
+        480,
+        800,
+        1280,
+        1600
+      ],
       "width": 1600,
       "height": 1200,
       "alt": "The bar of a traditional wood-panelled pub with brass hand pulls and glass-shaded lamps (illustrative photo, not Cask & Barrel)"
@@ -41,12 +57,28 @@
   },
   "hours": {
     "_note": "Taken from public listings (Wed–Sat 12:00–22:00, Mon & Tue closed). Sunday is not confirmed: null hides it. Use {\"closed\": true} or {\"open\":\"12:00\",\"close\":\"22:00\"}.",
-    "mon": { "closed": true },
-    "tue": { "closed": true },
-    "wed": { "open": "12:00", "close": "22:00" },
-    "thu": { "open": "12:00", "close": "22:00" },
-    "fri": { "open": "12:00", "close": "22:00" },
-    "sat": { "open": "12:00", "close": "22:00" },
+    "mon": {
+      "closed": true
+    },
+    "tue": {
+      "closed": true
+    },
+    "wed": {
+      "open": "12:00",
+      "close": "22:00"
+    },
+    "thu": {
+      "open": "12:00",
+      "close": "22:00"
+    },
+    "fri": {
+      "open": "12:00",
+      "close": "22:00"
+    },
+    "sat": {
+      "open": "12:00",
+      "close": "22:00"
+    },
     "sun": null
   },
   "seasonal": {
@@ -65,14 +97,67 @@
     "_beerFormat": "{ \"name\": \"\", \"brewery\": \"\", \"style\": \"Pale|Bitter|Stout|Porter|IPA|…\", \"abv\": 4.2, \"price\": 4.2, \"on_now\": true, \"notes\": \"\" }",
     "exampleLastUpdated": "2026-10-14",
     "exampleBeers": [
-      { "name": "Example Golden Ale", "brewery": "Example Brewery", "style": "Pale", "abv": 3.9, "price": 4.2, "on_now": true, "notes": null },
-      { "name": "Example Best Bitter", "brewery": "Example Brewery", "style": "Bitter", "abv": 4.2, "price": 4.2, "on_now": true, "notes": null },
-      { "name": "Example Hop Trail", "brewery": "Sample Brewing Co.", "style": "IPA", "abv": 5.0, "price": 4.8, "on_now": true, "notes": null },
-      { "name": "Example Dark Porter", "brewery": "Sample Brewing Co.", "style": "Porter", "abv": 5.2, "price": 4.8, "on_now": true, "notes": null },
-      { "name": "Example Milk Stout", "brewery": "Example Brewery", "style": "Stout", "abv": 4.6, "price": 4.6, "on_now": true, "notes": null },
-      { "name": "Example Seasonal", "brewery": "Sample Brewing Co.", "style": "Bitter", "abv": 4.0, "price": 4.2, "on_now": false, "notes": null }
+      {
+        "name": "Example Golden Ale",
+        "brewery": "Example Brewery",
+        "style": "Pale",
+        "abv": 3.9,
+        "price": 4.2,
+        "on_now": true,
+        "notes": null
+      },
+      {
+        "name": "Example Best Bitter",
+        "brewery": "Example Brewery",
+        "style": "Bitter",
+        "abv": 4.2,
+        "price": 4.2,
+        "on_now": true,
+        "notes": null
+      },
+      {
+        "name": "Example Hop Trail",
+        "brewery": "Sample Brewing Co.",
+        "style": "IPA",
+        "abv": 5.0,
+        "price": 4.8,
+        "on_now": true,
+        "notes": null
+      },
+      {
+        "name": "Example Dark Porter",
+        "brewery": "Sample Brewing Co.",
+        "style": "Porter",
+        "abv": 5.2,
+        "price": 4.8,
+        "on_now": true,
+        "notes": null
+      },
+      {
+        "name": "Example Milk Stout",
+        "brewery": "Example Brewery",
+        "style": "Stout",
+        "abv": 4.6,
+        "price": 4.6,
+        "on_now": true,
+        "notes": null
+      },
+      {
+        "name": "Example Seasonal",
+        "brewery": "Sample Brewing Co.",
+        "style": "Bitter",
+        "abv": 4.0,
+        "price": 4.2,
+        "on_now": false,
+        "notes": null
+      }
     ],
-    "exampleComing": [ { "name": "Example Winter Warmer", "brewery": "Example Brewery" } ]
+    "exampleComing": [
+      {
+        "name": "Example Winter Warmer",
+        "brewery": "Example Brewery"
+      }
+    ]
   },
   "about": {
     "kicker": "About us",
@@ -82,27 +167,91 @@
       "Come in for a quiet afternoon pint or an evening with friends."
     ],
     "facts": [
-      { "title": "Six hand pulls", "text": "Changing real ales, often including porter and stout." },
-      { "title": "Wines & single malts", "text": "A carefully chosen range alongside the cask line-up." }
+      {
+        "title": "Six hand pulls",
+        "text": "Changing real ales, often including porter and stout."
+      },
+      {
+        "title": "Wines & single malts",
+        "text": "A carefully chosen range alongside the cask line-up."
+      }
     ]
   },
   "menu": {
     "kicker": "Drinks",
-    "heading": "Wines & single malts",
-    "intro": "The cask ales are on the board above. Alongside them:",
+    "heading": "A dram or a glass",
+    "intro": "The cask ales are on the board above. For something else: a style guide to wines and single malts, to help you choose.",
     "groups": [
-      { "title": "Wines", "items": [
-        { "name": "House red", "note": null, "price": null },
-        { "name": "House white", "note": null, "price": null },
-        { "name": "Rosé", "note": null, "price": null },
-        { "name": "Sparkling", "note": null, "price": null }
-      ] },
-      { "title": "Single malts", "items": [
-        { "name": "Speyside", "note": null, "price": null },
-        { "name": "Highland", "note": null, "price": null },
-        { "name": "Islay", "note": null, "price": null }
-      ] }
-    ]
+      {
+        "title": "Wines",
+        "icon": "glass",
+        "blurb": "Four easy styles, from crisp to full.",
+        "scaleLabels": [
+          "Light",
+          "Full"
+        ],
+        "styles": [
+          {
+            "name": "Red",
+            "note": "Soft, ripe and fruity.",
+            "level": 3,
+            "pairing": "Try with a pie or a roast"
+          },
+          {
+            "name": "White",
+            "note": "Crisp, fresh and citrusy.",
+            "level": 1,
+            "pairing": "Try with fish or something light"
+          },
+          {
+            "name": "Rosé",
+            "note": "Pale, dry and red-berry fresh.",
+            "level": 1,
+            "pairing": "Try with a sunny afternoon"
+          },
+          {
+            "name": "Sparkling",
+            "note": "Dry, bright and bubbly.",
+            "level": 1,
+            "pairing": "Try as a toast"
+          }
+        ],
+        "bottles": []
+      },
+      {
+        "title": "Single malts",
+        "icon": "flame",
+        "blurb": "Three Scottish regions, from gentle to smoky.",
+        "scaleLabels": [
+          "Gentle",
+          "Smoky"
+        ],
+        "styles": [
+          {
+            "name": "Speyside",
+            "note": "Honey, orchard fruit, gentle.",
+            "level": 1,
+            "pairing": "Try with shortbread or a mild cheese"
+          },
+          {
+            "name": "Highland",
+            "note": "Heather, spice, fuller.",
+            "level": 2,
+            "pairing": "Try with a ploughman’s"
+          },
+          {
+            "name": "Islay",
+            "note": "Peat smoke, sea salt, medicine-chest.",
+            "level": 4,
+            "pairing": "Try with dark chocolate"
+          }
+        ],
+        "bottles": []
+      }
+    ],
+    "guideLabel": "Style guide, not a stock list",
+    "askLine": "Ask at the bar for today’s bottles.",
+    "_bottleFormat": "Add real bottles to a group’s \"bottles\" array: { \"name\": \"…\", \"price\": 4.5, \"note\": null }. Price and note can be null (hidden). They then show above the style guide. Only add what the pub confirms."
   },
   "events": [],
   "_eventFormat": "{ \"title\": \"Quiz night\", \"date\": \"2026-10-22\", \"time\": \"20:00\", \"endTime\": \"22:00\", \"description\": \"…\" } – past events hide automatically. Only add events the pub has confirmed.",
@@ -115,32 +264,122 @@
     "kicker": "Private hire",
     "heading": "Celebrate with us",
     "intro": "Birthdays, wakes, team nights or a tasting evening – tell us what you have in mind.",
-    "types": ["Birthday", "Celebration", "Christmas party", "Work event", "Wake", "Tasting evening", "Other"],
+    "types": [
+      "Birthday",
+      "Celebration",
+      "Christmas party",
+      "Work event",
+      "Wake",
+      "Tasting evening",
+      "Other"
+    ],
     "successHours": 24
   },
   "walk": {
     "heading": "Find us after a walk by the Tees",
     "text": "Yarm sits in a loop of the River Tees, so a riverside stroll and a pint go well together.",
     "photos": [
-      { "base": "images/yarm-bridge-river-tees", "widths": [480, 800, 1400], "width": 1400, "height": 788, "alt": "The old stone arched Yarm Bridge crossing the River Tees on a bright day", "caption": "Yarm Bridge over the Tees" },
-      { "base": "images/yarm-viaduct-river-tees", "widths": [480, 800, 1000], "width": 1000, "height": 562, "alt": "Yarm railway viaduct reflected in the River Tees", "caption": "Yarm Viaduct over the Tees" }
+      {
+        "base": "images/yarm-bridge-river-tees",
+        "widths": [
+          480,
+          800,
+          1400
+        ],
+        "width": 1400,
+        "height": 788,
+        "alt": "The old stone arched Yarm Bridge crossing the River Tees on a bright day",
+        "caption": "Yarm Bridge over the Tees"
+      },
+      {
+        "base": "images/yarm-viaduct-river-tees",
+        "widths": [
+          480,
+          800,
+          1000
+        ],
+        "width": 1000,
+        "height": 562,
+        "alt": "Yarm railway viaduct reflected in the River Tees",
+        "caption": "Yarm Viaduct over the Tees"
+      }
     ]
   },
   "media": {
-    "about": { "image": { "base": "images/real-ale-handpumps-and-porter", "widths": [480, 800, 1100], "width": 1100, "height": 816, "alt": "A row of brass-topped real ale hand pulls on a pub bar, with a dark pint of porter in the foreground (illustrative photo)", "caption": "Hand pulls" } },
+    "about": {
+      "image": {
+        "base": "images/real-ale-handpumps-and-porter",
+        "widths": [
+          480,
+          800,
+          1100
+        ],
+        "width": 1100,
+        "height": 816,
+        "alt": "A row of brass-topped real ale hand pulls on a pub bar, with a dark pint of porter in the foreground (illustrative photo)",
+        "caption": "Hand pulls"
+      }
+    },
     "clips": {
-      "barmaid": { "base": "media/barmaid-pint", "width": 854, "height": 480, "ai": true, "alt": "AI-generated video of an invented barmaid pulling a pint of real ale at a hand pump", "caption": "A pint being pulled" },
-      "whiskey": { "base": "media/whiskey-pour", "width": 640, "height": 480, "ai": true, "alt": "AI-generated slow-motion video of whiskey being poured over ice in a glass", "caption": "Whiskey over ice, in slow motion" }
+      "barmaid": {
+        "base": "media/barmaid-pint",
+        "width": 854,
+        "height": 480,
+        "ai": true,
+        "alt": "AI-generated video of an invented barmaid pulling a pint of real ale at a hand pump",
+        "caption": "A pint being pulled"
+      },
+      "whiskey": {
+        "base": "media/whiskey-pour",
+        "width": 640,
+        "height": 480,
+        "ai": true,
+        "alt": "AI-generated slow-motion video of whiskey being poured over ice in a glass",
+        "caption": "Whiskey over ice, in slow motion"
+      }
     }
   },
-  "map": { "staticImage": "images/map-osm-static", "width": 799, "height": 500, "zoom": 17 },
+  "map": {
+    "staticImage": "images/map-osm-static",
+    "width": 799,
+    "height": 500,
+    "zoom": 17
+  },
   "photoCredits": {
     "intro": "Photos: Wikimedia Commons. Illustrative only; none shows Cask & Barrel. The two video clips (whiskey pour, barmaid pulling a pint) are AI-generated illustrative footage; the person shown is invented and is not the pub or its staff. Images resized and, where noted, cropped. Map: © OpenStreetMap contributors.",
     "items": [
-      { "label": "Bar interior", "title": "Interior of a traditional London pub", "author": "Alan Hughes", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0", "page": "https://commons.wikimedia.org/wiki/File:Interior_of_a_traditional_London_pub_-_geograph.org.uk_-_8378573.jpg" },
-      { "label": "Hand pulls", "title": "Real ale handpumps with a pint of English Porter", "author": "55belgianbeerfan", "licence": "CC0", "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en", "page": "https://commons.wikimedia.org/wiki/File:Real_ale_handpumps_with_a_pint_of_English_Porter.jpg" },
-      { "label": "Yarm Bridge", "title": "Yarm Bridge", "author": "Simon Cotterill", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0", "page": "https://commons.wikimedia.org/wiki/File:Yarm_Bridge_-_geograph.org.uk_-_5794564.jpg" },
-      { "label": "Yarm Viaduct", "title": "Yarm Railway Viaduct over the R Tees (geograph 7379141)", "author": "Colin Park", "licence": "CC BY-SA 2.0", "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0", "page": "https://commons.wikimedia.org/wiki/File:Yarm_Railway_Viaduct_over_the_R_Tees_(geograph_7379141).jpg" }
+      {
+        "label": "Bar interior",
+        "title": "Interior of a traditional London pub",
+        "author": "Alan Hughes",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Interior_of_a_traditional_London_pub_-_geograph.org.uk_-_8378573.jpg"
+      },
+      {
+        "label": "Hand pulls",
+        "title": "Real ale handpumps with a pint of English Porter",
+        "author": "55belgianbeerfan",
+        "licence": "CC0",
+        "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+        "page": "https://commons.wikimedia.org/wiki/File:Real_ale_handpumps_with_a_pint_of_English_Porter.jpg"
+      },
+      {
+        "label": "Yarm Bridge",
+        "title": "Yarm Bridge",
+        "author": "Simon Cotterill",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Yarm_Bridge_-_geograph.org.uk_-_5794564.jpg"
+      },
+      {
+        "label": "Yarm Viaduct",
+        "title": "Yarm Railway Viaduct over the R Tees (geograph 7379141)",
+        "author": "Colin Park",
+        "licence": "CC BY-SA 2.0",
+        "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+        "page": "https://commons.wikimedia.org/wiki/File:Yarm_Railway_Viaduct_over_the_R_Tees_(geograph_7379141).jpg"
+      }
     ]
   },
   "footer": {
